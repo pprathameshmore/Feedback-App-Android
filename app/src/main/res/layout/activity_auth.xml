@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Feedback System"
+                android:textSize="50dp"
+                android:layout_marginBottom="20dp"
+                />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/get_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter mobile number"
+                        android:inputType="phone" />
+
+                    <Button
+                        android:id="@+id/btn_confirm_mobile_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30px"
+                        android:text="Confirm" />
+
+
+                    <EditText
+                        android:id="@+id/get_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20px"
+                        android:hint="Verification code"
+                        android:inputType="number" />
+
+                    <Button
+                        android:id="@+id/buttonVerifyCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20px"
+                        android:layout_marginTop="30px"
+                        android:text="Verify" />
+
+
+                </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

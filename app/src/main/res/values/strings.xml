@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Feedback App</string>
+
+    <string name="excellent">Excellent</string>
+    <string name="very_good">Very Good</string>
+    <string name="good">Good</string>
+    <string name="poor">Poor</string>
+
+</resources>
