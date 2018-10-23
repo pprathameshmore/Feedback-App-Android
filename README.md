@@ -5,8 +5,9 @@
 
 Screenshots
 
-![alt text](https://i.postimg.cc/1tRVNQDG/2.png "Screenshot 1")
 ![alt text](https://i.postimg.cc/1tRVNQDG/1.png "Screenshot 1")
+
+![2.png](https://i.postimg.cc/3RL4XcZP/2.png "Screenshot 2")
 
 
 
