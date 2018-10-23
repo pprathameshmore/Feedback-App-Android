@@ -28,6 +28,7 @@ public class AuthActivity extends AppCompatActivity {
     private EditText mGetNumber;
     private EditText get_code;
     private Button mVerifyBtn;
+    private TextView btnTeacherLogIn;
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
@@ -44,6 +45,8 @@ public class AuthActivity extends AppCompatActivity {
         mSendBtn = findViewById(R.id.btn_confirm_mobile_number);
         mGetNumber = findViewById(R.id.get_number);
 
+        btnTeacherLogIn = findViewById(R.id.btn_teacher_log_in);
+
 
         get_code = findViewById(R.id.get_code);
 
@@ -51,6 +54,14 @@ public class AuthActivity extends AppCompatActivity {
 
         get_code.setEnabled(false);
         mVerifyBtn.setEnabled(false);
+
+        btnTeacherLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startTeacherLogIn = new Intent(AuthActivity.this,TeacherAuth.class);
+                startActivity(startTeacherLogIn);
+            }
+        });
 
         mSendBtn.setOnClickListener(new View.OnClickListener() {
             @Override

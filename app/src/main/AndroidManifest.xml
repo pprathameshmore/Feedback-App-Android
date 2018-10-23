@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AuthActivity" />
-        <activity android:name=".ComputerNetworkFeedback"></activity>
+        <activity android:name=".TeacherAuth" />
+        <activity android:name=".TeacherFeedback"></activity>
     </application>
 
 </manifest>
