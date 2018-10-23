@@ -89,16 +89,14 @@ public class AuthActivity extends AppCompatActivity {
         });
 
 
-        //Navigate to About Page
-
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
                 signInWithPhoneAuthCredential(phoneAuthCredential);
-                Intent startFeedbackActivity = new Intent(AuthActivity.this, MainActivity.class);
-                startActivity(startFeedbackActivity);
+                Intent startMainActivity = new Intent(AuthActivity.this, MainActivity.class);
+                startActivity(startMainActivity);
                 Toast.makeText(AuthActivity.this, "Mobile Number Verified", Toast.LENGTH_SHORT).show();
             }
 
@@ -165,22 +163,10 @@ public class AuthActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
 
-
-                            FirebaseUser user = task.getResult().getUser();
-                            String number = user.getPhoneNumber();
-                            Intent sendNumber = new Intent(AuthActivity.this,MainActivity.class);
-                            sendNumber.putExtra("mobileNumber",number);
-                            startActivity(sendNumber);
-
                            Intent startFeedbackActivity = new Intent(AuthActivity.this, MainActivity.class);
                            startActivity(startFeedbackActivity);
                            finish();
 
-                            /*Intent startMainActivity = new Intent(AuthActivity.this, MainActivity.class);
-                            startActivity(startMainActivity);
-                            finish();
-                            */
-                            // ...
                         } else {
                             // Sign in failed, display a message and update the UI
 

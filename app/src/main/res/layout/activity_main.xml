@@ -43,7 +43,8 @@
                 android:id="@+id/et_rollno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your roll number"/>
+                android:hint="Enter your roll number"
+                android:inputType="numberDecimal"/>
 
             <TextView
                 android:layout_width="match_parent"

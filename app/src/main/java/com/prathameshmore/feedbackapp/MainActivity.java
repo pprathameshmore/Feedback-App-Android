@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private Spinner subjects;
     private DatabaseReference mDatabaseReference;
-    private AlertDialog.Builder builder;
     private Button btnSumbit;
     private EditText rollNumber;
     private String rollNum;
@@ -71,9 +71,6 @@ public class MainActivity extends AppCompatActivity {
         radioGroupG = findViewById(R.id.rg_g);
         radioGroupH = findViewById(R.id.rg_h);
 
-
-
-
         firebaseAuth = FirebaseAuth.getInstance();
 
         subjects = findViewById(R.id.spinner_subjects);
@@ -93,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedSubject = parent.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, selectedSubject, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -125,17 +121,25 @@ public class MainActivity extends AppCompatActivity {
                 radioButtonH = findViewById(selectedRG_H);
 
                 rollNum = rollNumber.getText().toString();
-                Toast.makeText(MainActivity.this, rollNum, Toast.LENGTH_SHORT).show();
-                mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Feedback").child(rollNum);
-                DatabaseReference subDatabaseReference = mDatabaseReference.child(selectedSubject);
-                subDatabaseReference.child("A").setValue("A + " + radioButtonA.getText());
-                subDatabaseReference.child("B").setValue("B + " + radioButtonB.getText());
-                subDatabaseReference.child("C").setValue("C + " + radioButtonB.getText());
-                subDatabaseReference.child("D").setValue("D + " + radioButtonB.getText());
-                subDatabaseReference.child("E").setValue("E + " + radioButtonB.getText());
-                subDatabaseReference.child("F").setValue("F + " + radioButtonB.getText());
-                subDatabaseReference.child("G").setValue("G + " + radioButtonB.getText());
-                subDatabaseReference.child("H").setValue("H + " + radioButtonB.getText());
+                if (TextUtils.isEmpty(rollNum)) {
+                    rollNumber.setError("Please enter roll number");
+                } else {
+
+                    Toast.makeText(MainActivity.this, rollNum, Toast.LENGTH_SHORT).show();
+                    mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Feedback").child(rollNum);
+                    DatabaseReference subDatabaseReference = mDatabaseReference.child(selectedSubject);
+                    subDatabaseReference.child("A").setValue("A + " + radioButtonA.getText());
+                    subDatabaseReference.child("B").setValue("B + " + radioButtonB.getText());
+                    subDatabaseReference.child("C").setValue("C + " + radioButtonB.getText());
+                    subDatabaseReference.child("D").setValue("D + " + radioButtonB.getText());
+                    subDatabaseReference.child("E").setValue("E + " + radioButtonB.getText());
+                    subDatabaseReference.child("F").setValue("F + " + radioButtonB.getText());
+                    subDatabaseReference.child("G").setValue("G + " + radioButtonB.getText());
+                    subDatabaseReference.child("H").setValue("H + " + radioButtonB.getText());
+                    Toast.makeText(MainActivity.this, "Feedback is updated", Toast.LENGTH_LONG).show();
+                }
+
+
 
             }
         });
@@ -148,13 +152,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        /*FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
         if (firebaseUser == null) {
             Intent startAuthActivity = new Intent(MainActivity.this,AuthActivity.class);
             startActivity(startAuthActivity);
             finish();
-        }*/
+        }
 
 
     }
