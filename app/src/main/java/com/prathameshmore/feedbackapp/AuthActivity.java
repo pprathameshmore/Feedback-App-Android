@@ -167,6 +167,10 @@ public class AuthActivity extends AppCompatActivity {
 
 
                             FirebaseUser user = task.getResult().getUser();
+                            String number = user.getPhoneNumber();
+                            Intent sendNumber = new Intent(AuthActivity.this,MainActivity.class);
+                            sendNumber.putExtra("mobileNumber",number);
+                            startActivity(sendNumber);
 
                            Intent startFeedbackActivity = new Intent(AuthActivity.this, MainActivity.class);
                            startActivity(startFeedbackActivity);

@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margin"
-                android:text="Choose subject" />
+                android:text="Choose subject from following options" />
 
             <Spinner
                 android:id="@+id/spinner_subjects"
@@ -37,6 +37,13 @@
                 android:layout_marginTop="@dimen/top_margin">
 
             </Spinner>
+
+
+            <EditText
+                android:id="@+id/et_rollno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your roll number"/>
 
             <TextView
                 android:layout_width="match_parent"
